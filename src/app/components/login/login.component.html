@@ -1,0 +1,29 @@
+<mat-card class="centered">
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Nome Utente</mat-label>
+      <input matInput [(ngModel)]="user.username">
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Password</mat-label>
+      <input matInput [(ngModel)]="user.password" [type]="hide ? 'password' : 'text'">
+      <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+    </mat-form-field>
+    <mat-error *ngIf="showError">I dati inseriti non sono corretti</mat-error>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button type="button" color="default" mat-button (click)="router.navigate(['registration'])">
+        Registrati
+      </button>
+    </div>
+    <div class="col">
+      <button type="button" color="primary" mat-button (click)="login()">
+        Login
+      </button>
+    </div>
+  </div>
+</mat-card>

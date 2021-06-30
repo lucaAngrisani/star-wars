@@ -1,0 +1,65 @@
+<mat-card class="centered">
+  <form class="login-form" [formGroup]="frmRegister" (ngSubmit)="userService.registerUser(setUser())">
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome Utente</mat-label>
+        <input matInput formControlName="username">
+        <mat-error align="end" *ngIf="frmRegister.controls['username'].errors">
+          {{formService.showError(frmRegister.controls['username'].errors)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" [type]="hideP1 ? 'password' : 'text'">
+        <mat-error align="end" *ngIf="frmRegister.controls['password'].errors">
+          {{formService.showError(frmRegister.controls['password'].errors)}}</mat-error>
+        <mat-icon matSuffix (click)="hideP1 = !hideP1">{{hideP1 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Repeat password</mat-label>
+        <input matInput formControlName="confirmPassword" [type]="hideP2 ? 'password' : 'text'">
+        <mat-error align="end" *ngIf="frmRegister.controls['confirmPassword'].errors">
+          {{formService.showError(frmRegister.controls['confirmPassword'].errors)}}</mat-error>
+        <mat-icon matSuffix (click)="hideP2 = !hideP2">{{hideP2 ? 'visibility_off' : 'visibility'}}</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input matInput formControlName="firstname">
+        <mat-error align="end" *ngIf="frmRegister.controls['firstname'].errors">
+          {{formService.showError(frmRegister.controls['firstname'].errors)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <mat-form-field appearance="fill">
+        <mat-label>Cognome</mat-label>
+        <input matInput formControlName="lastname">
+        <mat-error align="end" *ngIf="frmRegister.controls['lastname'].errors">
+          {{formService.showError(frmRegister.controls['lastname'].errors)}}</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <button type="button" color="default" mat-button (click)="router.navigate(['login'])">
+          Torna al Login
+        </button>
+      </div>
+      <div class="col">
+        <button type="button" [disabled]="frmRegister.invalid" color="primary" mat-button
+          (click)="userService.registerUser(setUser())">
+          Registrati
+        </button>
+      </div>
+    </div>
+
+  </form>
+</mat-card>

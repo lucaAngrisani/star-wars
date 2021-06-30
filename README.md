@@ -2,6 +2,13 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.1.
 
+## Docker start
+
+First of all, build your application with `ng build` or `npm build`
+Run `docker build -t star-wars .` to build docker locally
+Run `docker-compose up -d --build` to start docker image locally
+
+Go to `localhost:4201/login`
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
